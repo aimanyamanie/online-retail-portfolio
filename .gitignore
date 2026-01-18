@@ -1,0 +1,10 @@
+# Python
+.venv/
+__pycache__/
+
+# Data
+/data/online_retail.xlsx
+/data/processed/
+
+# Reports
+# Keep figures tracked for the portfolio
