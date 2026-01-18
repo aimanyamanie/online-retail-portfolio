@@ -88,39 +88,135 @@
       <section class="card">
         <h2>Overview</h2>
         <p>
-          This project cleans transaction data, creates a revenue feature, and
-          highlights monthly trends, geographic concentration, and top products.
+          This project walks through an end-to-end analytics workflow using the
+          UCI Online Retail dataset. It covers data cleaning, exploratory
+          analysis, and publishable visualizations.
         </p>
         <img src="figures/overview.png" alt="Overview of key charts" />
       </section>
 
       <section class="card">
+        <h2>Goals</h2>
+        <ul>
+          <li>Clean and validate transactional data.</li>
+          <li>Explore revenue patterns by time, country, and product.</li>
+          <li>Produce clear, publishable charts.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Dataset</h2>
+        <p>
+          Source:
+          <a href="https://archive.ics.uci.edu/ml/datasets/Online+Retail"
+            >UCI Online Retail</a
+          >
+        </p>
+        <p>File: <code>data/online_retail.xlsx</code></p>
+      </section>
+
+      <section class="card">
+        <h2>Project Structure</h2>
+        <ul>
+          <li><code>data/</code> raw data (not tracked by default)</li>
+          <li><code>data/processed/</code> cleaned output</li>
+          <li><code>src/</code> scripts for cleaning and EDA</li>
+          <li><code>reports/figures/</code> charts saved by EDA</li>
+          <li><code>notebooks/</code> optional exploration notebooks</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Workflow</h2>
+        <ol>
+          <li>Download dataset (see <code>data/README.md</code>).</li>
+          <li>Run cleaning script.</li>
+          <li>Run EDA script to generate charts.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>How to Run</h2>
+        <pre><code>python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python src\cleaning.py
+python src\eda.py</code></pre>
+      </section>
+
+      <section class="card">
+        <h2>Outputs</h2>
+        <ul>
+          <li><code>data/processed/online_retail_clean.csv</code></li>
+          <li><code>reports/figures/</code> charts</li>
+        </ul>
+      </section>
+
+      <section class="card">
         <h2>Methodology</h2>
         <ul>
-          <li>Standardized columns and parsed dates from the raw Excel file.</li>
-          <li>Removed cancellations, missing customers, and invalid rows.</li>
-          <li>Added a TotalPrice feature for revenue calculations.</li>
-          <li>Aggregated revenue by month, country, and product.</li>
+          <li>Ingest the raw Excel dataset and standardize column names.</li>
+          <li>Remove cancellations, missing customer IDs, and invalid rows.</li>
+          <li>Create a <code>TotalPrice</code> feature for revenue analysis.</li>
+          <li>Aggregate revenue by month, country, and product.</li>
         </ul>
+      </section>
+
+      <section class="card">
+        <h2>Write-up (short)</h2>
+        <p>
+          This project demonstrates a complete analytics pipeline for
+          e-commerce transactions. The data is cleaned by removing
+          cancellations, missing customer IDs, and invalid quantities/prices,
+          then enriched with a <code>TotalPrice</code> field. The EDA focuses on
+          revenue over time, geographic concentration, and top products, with
+          charts saved for portfolio use.
+        </p>
       </section>
 
       <section class="card">
         <h2>Key Insights</h2>
         <ul>
-          <li>Revenue peaks in October-November, showing strong seasonality.</li>
-          <li>The UK dominates sales, with other countries far behind.</li>
-          <li>Top gift and decor items drive a large share of revenue.</li>
-          <li>Shipping/adjustment line items affect product reporting.</li>
+          <li>
+            Seasonality is clear: revenue rises from late summer and peaks in
+            October-November, then falls sharply in the final month. The last
+            month likely reflects partial coverage, but the Q4 surge is strong.
+          </li>
+          <li>
+            Revenue is highly concentrated by country: the United Kingdom
+            accounts for the vast majority of sales, with the Netherlands, EIRE,
+            Germany, and France trailing far behind.
+          </li>
+          <li>
+            A small set of gift and home decor items drive a large share of
+            revenue. Items like "PAPER CRAFT, LITTLE BIRDIE" and "REGENCY
+            CAKESTAND 3 TIER" lead the list.
+          </li>
+          <li>
+            Non-merchandise line items appear in the top products list (for
+            example, "Postage" and "Manual"), indicating shipping fees and
+            adjustments materially affect revenue totals.
+          </li>
         </ul>
       </section>
 
       <section class="card">
         <h2>Charts</h2>
+        <p>If images are missing, run <code>python src\eda.py</code>.</p>
         <div class="images">
+          <img src="figures/overview.png" alt="Overview of key charts" />
           <img src="figures/monthly_revenue.png" alt="Monthly revenue" />
           <img src="figures/top_countries.png" alt="Top countries by revenue" />
           <img src="figures/top_products.png" alt="Top products by revenue" />
         </div>
+      </section>
+
+      <section class="card">
+        <h2>Notes</h2>
+        <p>
+          The scripts drop cancellations (InvoiceNo starting with "C"), missing
+          customer IDs, and non-positive quantities/prices.
+        </p>
       </section>
     </main>
 
