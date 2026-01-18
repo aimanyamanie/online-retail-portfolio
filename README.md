@@ -36,6 +36,12 @@ python src\eda.py
 - `data/processed/online_retail_clean.csv`
 - `reports/figures/` charts
 
+## Methodology
+- Ingest the raw Excel dataset and standardize column names and date types.
+- Remove cancellations, missing customer IDs, and invalid quantity/price rows.
+- Create a `TotalPrice` feature for revenue-based analysis.
+- Aggregate revenue by month, country, and product for focused EDA.
+
 ## Write-up (short)
 This project demonstrates a complete analytics pipeline for e-commerce transactions. The data is cleaned by removing cancellations, missing customer IDs, and invalid quantities/prices, then enriched with a `TotalPrice` field. The EDA focuses on revenue over time, geographic concentration, and top products, with charts saved for portfolio use.
 
@@ -44,8 +50,11 @@ This project demonstrates a complete analytics pipeline for e-commerce transacti
 - Revenue is highly concentrated by country: the United Kingdom accounts for the vast majority of sales, with the Netherlands, EIRE, Germany, and France trailing far behind. This suggests reliance on one core market and a clear opportunity for diversification.
 - A small set of gift and home decor items drive a large share of revenue. Examples like "PAPER CRAFT, LITTLE BIRDIE" and "REGENCY CAKESTAND 3 TIER" lead the list, so inventory and merchandising for these SKUs likely has outsized impact.
 - Non-merchandise line items appear in the top products list (for example, "Postage" and "Manual"), indicating shipping fees and adjustments materially affect revenue totals. Separating these from product revenue would improve product-level reporting.
+
 ## Charts
 If images are missing, run `python src\eda.py`.
+
+![Overview](reports/figures/overview.png)
 
 ![Monthly revenue](reports/figures/monthly_revenue.png)
 ![Top countries by revenue](reports/figures/top_countries.png)

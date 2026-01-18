@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Retail Analytics Portfolio</title>
+    <style>
+      :root {
+        --bg: #f6f3ef;
+        --ink: #1f2428;
+        --accent: #3c6e71;
+        --card: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Georgia", "Times New Roman", serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 55%);
+      }
+      header {
+        padding: 56px 20px 28px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: 0.5px;
+      }
+      header p {
+        margin: 0 auto;
+        max-width: 720px;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px 64px;
+      }
+      .grid {
+        display: grid;
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        color: var(--accent);
+        margin-top: 0;
+      }
+      ul {
+        padding-left: 18px;
+        line-height: 1.6;
+      }
+      .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+      img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #e2e2e2;
+        background: #fff;
+      }
+      footer {
+        padding: 20px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #4a4a4a;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Online Retail Analytics Portfolio</h1>
+      <p>
+        End-to-end analytics on the UCI Online Retail dataset, covering data
+        cleaning, exploratory analysis, and revenue insights.
+      </p>
+    </header>
+
+    <main class="container grid">
+      <section class="card">
+        <h2>Overview</h2>
+        <p>
+          This project cleans transaction data, creates a revenue feature, and
+          highlights monthly trends, geographic concentration, and top products.
+        </p>
+        <img src="figures/overview.png" alt="Overview of key charts" />
+      </section>
+
+      <section class="card">
+        <h2>Methodology</h2>
+        <ul>
+          <li>Standardized columns and parsed dates from the raw Excel file.</li>
+          <li>Removed cancellations, missing customers, and invalid rows.</li>
+          <li>Added a TotalPrice feature for revenue calculations.</li>
+          <li>Aggregated revenue by month, country, and product.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Key Insights</h2>
+        <ul>
+          <li>Revenue peaks in October-November, showing strong seasonality.</li>
+          <li>The UK dominates sales, with other countries far behind.</li>
+          <li>Top gift and decor items drive a large share of revenue.</li>
+          <li>Shipping/adjustment line items affect product reporting.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Charts</h2>
+        <div class="images">
+          <img src="figures/monthly_revenue.png" alt="Monthly revenue" />
+          <img src="figures/top_countries.png" alt="Top countries by revenue" />
+          <img src="figures/top_products.png" alt="Top products by revenue" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Built with Python, Pandas, Matplotlib, and Seaborn.
+    </footer>
+  </body>
+</html>
